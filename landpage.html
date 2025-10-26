@@ -24,6 +24,12 @@ body {
   position: relative;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+body.fade-in {
+  opacity: 1;
 }
 
 body::-webkit-scrollbar {
@@ -37,8 +43,15 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(245, 232, 211, 0.4);
+  background: rgba(245, 232, 211, 0);
+  backdrop-filter: blur(0px);
   z-index: 1;
+  transition: background 5s ease, backdrop-filter 1.5s ease;
+}
+
+body.fade-in::before {
+  background: rgba(245, 232, 211, 0.4);
+  backdrop-filter: blur(8px);
 }
 
 /* Floating bubbles */
@@ -54,6 +67,12 @@ body::before {
     0 0 25px rgba(255, 255, 255, 0.2);
   animation: rise 12s linear infinite;
   z-index: 2;
+  opacity: 0; /* start invisible */
+  transition: opacity 1.5s ease; /* fade in with body */
+}
+
+body.fade-in .bubble {
+  opacity: 1;
 }
 
 @keyframes rise {
@@ -134,26 +153,43 @@ ul {
 
     <div class="cloud-box">
       <ul>
-        <li>Guest 1</li>
-        <li>Guest 2</li>
-        <li>Guest 3</li>
-        <li>Guest 4</li>
-        <li>Guest 5</li>
-        <li>Guest 6</li>
-        <li>Guest 7</li>
-        <li>Guest 8</li>
-        <li>Guest 9</li>
-        <li>Guest 10</li>
-        <li>Guest 11</li>
-        <li>Guest 12</li>
-        <li>Guest 13</li>
-        <li>Guest 14</li>
-        <li>Guest 15</li>
-        <li>Guest 16</li>
-        <li>Guest 17</li>
-        <li>Guest 18</li>
+        <li>GRIÑO, HANNAH JOY</li>
+        <li>REMPIS, SHAMIRA ASHLY</li>
+        
+        
+        
+
       </ul>
     </div>
+
+    <div class="cloud-box">
+      <ul>
+        <li>BASE, SYDNEY CHARLISSE</li>
+        <li>QUILILAN, TRIXIANE</li> 
+        <li>REVILLA, NICOLE KATE</li>
+        <li>SERDON, RISSA</li>
+        <li>VILLEGAS, MICAH</li>
+        
+      </ul>
+    </div>
+    
+    <div class="cloud-box">
+      <ul>
+        <li>BASE, SYDNEY CHARLISSE</li>
+        <li>QUILILAN, TRIXIANE</li> 
+        <li>REVILLA, NICOLE KATE</li>
+        <li>SERDON, RISSA</li>
+        <li>VILLEGAS, MICAH</li>
+        
+      </ul>
+
+    </div>
   </div>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('fade-in'); // trigger fade-in for everything
+});
+</script>
 </body>
 </html>
